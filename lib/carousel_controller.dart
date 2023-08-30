@@ -24,6 +24,8 @@ abstract class CarouselController {
   void stopAutoPlay();
 
   factory CarouselController() => CarouselControllerImpl();
+
+  PageController? get pageController;
 }
 
 class CarouselControllerImpl implements CarouselController {
@@ -66,6 +68,10 @@ class CarouselControllerImpl implements CarouselController {
     if (isNeedResetTimer) {
       _state?.onResumeTimer();
     }
+  }
+
+  PageController? get pageController {
+    return _state?.pageController;
   }
 
   /// Animates the controlled [CarouselSlider] to the previous page.
