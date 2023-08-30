@@ -346,7 +346,9 @@ class CarouselSliderState extends State<CarouselSlider>
                 ? (widget.items!.isNotEmpty
                     ? widget.items![index]
                     : Container())
-                : widget.itemBuilder!(context, index, idx),
+                : (widget.itemCount! > 0
+                    ? widget.itemBuilder!(context, index, idx)
+                    : Container()),
             builder: (context, child) {
               var distortionValue = 1.0;
               // if `enlargeCenterPage` is true, we must calculate the carousel item's height
